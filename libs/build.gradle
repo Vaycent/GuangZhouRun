@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+
+    compile rootProject.ext.dependencies["support-v7"]
+    compile rootProject.ext.dependencies["support-design"]
+    compile rootProject.ext.dependencies["support-multidex"]
+    compile rootProject.ext.dependencies["glide"]//图片加载器
+    compile rootProject.ext.dependencies["gson"]//json解析器
+    compile rootProject.ext.dependencies["constraint"]//约束布局
+    compile rootProject.ext.dependencies["rxjava"]//rxjava
+    compile rootProject.ext.dependencies["rxandroid"]//rxandroid
+    compile rootProject.ext.dependencies["rxandroid"]//rxandroid
+    debugCompile rootProject.ext.dependencies["leakcanarydebug"]//debug用内存泄漏
+    testCompile rootProject.ext.dependencies["leakcanarytest"]//测试用内存泄漏
+    releaseCompile rootProject.ext.dependencies["leakcanaryrelease"]//release用内存泄漏
+
+    compile rootProject.ext.dependencies["amap_navi"]
+    compile rootProject.ext.dependencies["amap_search"]
+//    compile rootProject.ext.dependencies["amap_location"]
+
+
+
+    testCompile rootProject.ext.testdependencies["junit"]
+    compile rootProject.ext.testdependencies["stetho"]
+
+//    debugCompile rootProject.ext.testdependencies["leakcanary"];
+//    releaseCompile rootProject.ext.testdependencies["leakcanary-no-op"];
+//    testCompile rootProject.ext.testdependencies["leakcanary-no-op"];
+}
