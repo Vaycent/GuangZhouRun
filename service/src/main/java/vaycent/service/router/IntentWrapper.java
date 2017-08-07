@@ -4,13 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
-import vaycent.service.router.annotations.ClassName;
 import vaycent.service.router.annotations.DefaultBoolean;
 import vaycent.service.router.annotations.DefaultByte;
 import vaycent.service.router.annotations.DefaultChar;
@@ -19,27 +17,26 @@ import vaycent.service.router.annotations.DefaultFloat;
 import vaycent.service.router.annotations.DefaultInt;
 import vaycent.service.router.annotations.DefaultLong;
 import vaycent.service.router.annotations.DefaultShort;
-import vaycent.service.router.annotations.IntentFlags;
 import vaycent.service.router.annotations.Key;
-import vaycent.service.router.annotations.RequestCode;
-
 
 public class IntentWrapper {
 
     private Context mContext;
     private Bundle mExtras;
-    private int mRequestCode = -1;
+    private Integer mRequestCode;
     private Intent mIntent;
 
-    private IntentWrapper(Context context, String className, Bundle extras, int flags, int requestCode) {
+    private IntentWrapper(Context context, String className, Bundle extras, Integer flags, Integer requestCode) {
         this.mContext = context;
-        this.mExtras = extras;
         this.mRequestCode = requestCode;
+
+        if (extras == null) this.mExtras = new Bundle();
+        else this.mExtras = extras;
 
         this.mIntent = new Intent();
         this.mIntent.setClassName(this.mContext, className);
         this.mIntent.putExtras(this.mExtras);
-        this.mIntent.addFlags(flags);
+        if (flags != null) this.mIntent.addFlags(flags);
     }
 
     public Bundle getExtras() {
@@ -56,7 +53,7 @@ public class IntentWrapper {
     }
 
     public void start() {
-        if (this.mRequestCode == -1) startActivity();
+        if (this.mRequestCode == null || this.mRequestCode == -1) startActivity();
         else startActivityForResult(this.mRequestCode);
     }
 
@@ -72,34 +69,39 @@ public class IntentWrapper {
         } else ((Activity) this.mContext).startActivityForResult(this.mIntent, requestCode);
     }
 
-    public static final class Builder {
-
-        private int mFlags;
-        private int mRequestCode;
+    static final class Builder {
         private Context mContext;
+        private Integer mFlags;
+        private Integer mRequestCode;
         private Method mMethod;
         private Object[] mArgs;
         private String mClassName;
 
-        public Builder(Context context, Method method, Object... args) {
+        Builder(Context context, Method method, Object... args) {
             this.mContext = context;
             this.mMethod = method;
             this.mArgs = args;
         }
 
-        public Builder addFlags(int flags) {
-            this.mFlags |= flags;
+        Builder setClassName(String className) {
+            this.mClassName = className;
             return this;
         }
 
-        public IntentWrapper build() {
-            Annotation[] methodAnnotations = this.mMethod.getAnnotations();
-            for (Annotation annotation : methodAnnotations) {
-                parseMethodAnnotation(annotation);
-            }
-            if (TextUtils.isEmpty(this.mClassName)) {
-                throw new RuntimeException("ClassName annotation is required.");
-            }
+        Builder setRequestCode(Integer requestCode) {
+            this.mRequestCode = requestCode;
+            return this;
+        }
+
+        Builder setFlags(Integer flags) {
+            this.mFlags = flags;
+            return this;
+        }
+
+        IntentWrapper build() {
+            if (mMethod == null)
+                return new IntentWrapper(this.mContext, this.mClassName, null, this.mFlags, this.mRequestCode);
+
             // 参数类型
             Type[] types = this.mMethod.getGenericParameterTypes();
             // 参数名称
@@ -158,18 +160,7 @@ public class IntentWrapper {
                 TypeParser.parseParameter(bundleExtra, types[i], key, this.mArgs[i] != null ?
                         this.mArgs[i] : defaultValue);
             }
-            return new IntentWrapper(this.mContext, this.mClassName, bundleExtra, this.mFlags,
-                    this.mMethod.isAnnotationPresent(RequestCode.class) ? this.mRequestCode : -1);
-        }
-
-        private void parseMethodAnnotation(Annotation annotation) {
-            if (annotation instanceof ClassName) {
-                this.mClassName = ((ClassName) annotation).value();
-            } else if (annotation instanceof RequestCode) {
-                this.mRequestCode = ((RequestCode) annotation).value();
-            } else if (annotation instanceof IntentFlags) {
-                this.mFlags = ((IntentFlags) annotation).value();
-            }
+            return new IntentWrapper(this.mContext, this.mClassName, bundleExtra, this.mFlags, this.mRequestCode);
         }
     }
 }

@@ -28,7 +28,6 @@ android {
 dependencies {
     compile project(":base")
     compile project(":service")
-
     compile project(":mapgame")
 
 }

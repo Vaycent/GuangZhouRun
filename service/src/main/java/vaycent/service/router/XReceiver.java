@@ -8,7 +8,6 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
-import vaycent.service.router.annotations.ClassName;
 import vaycent.service.router.annotations.DefaultBoolean;
 import vaycent.service.router.annotations.DefaultByte;
 import vaycent.service.router.annotations.DefaultChar;
@@ -19,7 +18,6 @@ import vaycent.service.router.annotations.DefaultLong;
 import vaycent.service.router.annotations.DefaultShort;
 import vaycent.service.router.annotations.Key;
 
-
 public class XReceiver<T> {
 
     public void receive(Intent intent, T receiver) {
@@ -27,52 +25,48 @@ public class XReceiver<T> {
     }
 
     public void receive(Bundle bundle, T receiver) {
+        if (receiver == null)// 检查参数接收者是否为空
+            throw new NullPointerException("Reciever is required.");
+
         Class<?> classes[] = receiver.getClass().getInterfaces();
-        if (classes.length == 0)
-            throw new IllegalArgumentException("reciever must implements route interface.");
-        if (classes.length > 1)
-            throw new IllegalArgumentException("reciever can only implements one route interface.");
+        if (classes.length == 0)// 检查参数接收者是否实现了 XRules 中的接口
+            throw new IllegalArgumentException("Reciever must implements interface in XRules.");
+
+        if (classes.length > 1)// 检查参数接收者是否只实现了 XRules 中的一个接口
+            throw new IllegalArgumentException("Reciever can only implements one interface in XRules.");
+
+        if (bundle == null) return;
 
         Method[] methods = classes[0].getMethods();
-        for (Method method : methods) {
-            Annotation[] methodAnnotations = method.getAnnotations();
-            String mClassName = null;
-            for (Annotation annotation : methodAnnotations) {
-                if (annotation instanceof ClassName) {
-                    mClassName = ((ClassName) annotation).value();
-                    break;
-                }
+
+        if (methods.length != 1)// 检查参数接收者是否只有一个方法
+            throw new IllegalArgumentException("Receiver can only have one method.");
+
+        // 参数类型
+        Type[] types = methods[0].getGenericParameterTypes();
+
+        if (types.length == 0) return;
+        Object[] returnArgs = new Object[types.length];
+
+        // 参数名称
+        Annotation[][] parameterAnnotationsArray = methods[0].getParameterAnnotations();
+
+        for (int i = 0; i < types.length; i++) {
+            Annotation[] parameterAnnotations = parameterAnnotationsArray[i];
+            String key = null;
+            Object defaultValue = null;
+            for (Annotation annotation : parameterAnnotations) {
+                if (annotation instanceof Key) key = ((Key) annotation).value();
+                else defaultValue = getDefaultValue(annotation, types[i]);
             }
-            if (TextUtils.isEmpty(mClassName)) continue;
-
-            // 参数类型
-            Type[] types = method.getGenericParameterTypes();
-
-            if (types.length == 0) return;
-            Object[] returnArgs = new Object[types.length];
-
-            // 参数名称
-            Annotation[][] parameterAnnotationsArray = method.getParameterAnnotations();
-
-            for (int i = 0; i < types.length; i++) {
-                Annotation[] parameterAnnotations = parameterAnnotationsArray[i];
-                String key = null;
-                Object defaultValue = null;
-                for (Annotation annotation : parameterAnnotations) {
-                    if (annotation instanceof Key) key = ((Key) annotation).value();
-                    else defaultValue = getDefaultValue(annotation, types[i]);
-                }
-                if (TextUtils.isEmpty(key)) continue;
-                returnArgs[i] = TypeParser.recieveValue(bundle, types[i], key, defaultValue);
-            }
-            try {
-                method.invoke(receiver, returnArgs);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return;
+            if (TextUtils.isEmpty(key)) continue;
+            returnArgs[i] = TypeParser.recieveValue(bundle, types[i], key, defaultValue);
         }
-        throw new RuntimeException("ClassName annotation is required.");
+        try {
+            methods[0].invoke(receiver, returnArgs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private Object getDefaultValue(Annotation annotation, Type type) {
@@ -119,4 +113,5 @@ public class XReceiver<T> {
         }
         return null;
     }
+
 }

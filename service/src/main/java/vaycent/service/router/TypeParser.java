@@ -123,6 +123,17 @@ class TypeParser {
                         }
                     }
                     throw new RuntimeException("ArrayList的泛型必须实现Parcelable接口");
+                } else if (actualTypeArgument instanceof WildcardType) {
+                    WildcardType wildcardType = (WildcardType) actualTypeArgument;
+                    Type[] types = wildcardType.getUpperBounds();
+                    for (Type type1 : types) {
+                        if (type1 == Parcelable.class) {
+                            ArrayList<Parcelable> alArgs = (ArrayList<Parcelable>) arg;
+                            bundleExtra.putParcelableArrayList(key, alArgs);
+                            return;
+                        }
+                    }
+                    throw new RuntimeException("ArrayList的泛型必须实现Parcelable接口");
                 }
             } else {
                 throw new RuntimeException("ArrayList的泛型必须实现Parcelable接口");
@@ -165,34 +176,42 @@ class TypeParser {
         } else if (rawParameterType == String[].class) {
             return bundle.getStringArray(key);
         } else if (rawParameterType == int.class || rawParameterType == Integer.class) {
+            if (defaultValue == null) return bundle.getInt(key);
             return bundle.getInt(key, (Integer) defaultValue);
         } else if (rawParameterType == int[].class || rawParameterType == Integer[].class) {
             return bundle.getIntArray(key);
         } else if (rawParameterType == short.class || rawParameterType == Short.class) {
+            if (defaultValue == null) return bundle.getShort(key);
             return bundle.getShort(key, (Short) defaultValue);
         } else if (rawParameterType == short[].class || rawParameterType == Short[].class) {
             return bundle.getShortArray(key);
         } else if (rawParameterType == long.class || rawParameterType == Long.class) {
+            if (defaultValue == null) return bundle.getLong(key);
             return bundle.getLong(key, (Long) defaultValue);
         } else if (rawParameterType == long[].class || rawParameterType == Long[].class) {
             return bundle.getLongArray(key);
         } else if (rawParameterType == char.class) {
+            if (defaultValue == null) return bundle.getChar(key);
             return bundle.getChar(key, (char) defaultValue);
         } else if (rawParameterType == char[].class) {
             return bundle.getCharArray(key);
         } else if (rawParameterType == double.class || rawParameterType == Double.class) {
+            if (defaultValue == null) return bundle.getDouble(key);
             return bundle.getDouble(key, (Double) defaultValue);
         } else if (rawParameterType == double[].class || rawParameterType == Double[].class) {
             return bundle.getDoubleArray(key);
         } else if (rawParameterType == float.class || rawParameterType == Float.class) {
+            if (defaultValue == null) bundle.getFloat(key);
             return bundle.getFloat(key, (Float) defaultValue);
         } else if (rawParameterType == float[].class || rawParameterType == Float[].class) {
             return bundle.getFloatArray(key);
         } else if (rawParameterType == byte.class || rawParameterType == Byte.class) {
+            if (defaultValue == null) bundle.get(key);
             return bundle.getByte(key, (Byte) defaultValue);
         } else if (rawParameterType == byte[].class || rawParameterType == Byte[].class) {
             return bundle.getByteArray(key);
         } else if (rawParameterType == boolean.class || rawParameterType == Boolean.class) {
+            if (defaultValue == null) return bundle.getBoolean(key);
             return bundle.getBoolean(key, (Boolean) defaultValue);
         } else if (rawParameterType == boolean[].class || rawParameterType == Boolean[].class) {
             return bundle.getBooleanArray(key);
@@ -221,6 +240,15 @@ class TypeParser {
                     Class<?>[] interfaces = ((Class) actualTypeArgument).getInterfaces();
                     for (Class<?> interfaceClass : interfaces) {
                         if (interfaceClass == Parcelable.class) {
+                            return bundle.getParcelableArrayList(key);
+                        }
+                    }
+                    throw new RuntimeException("ArrayList的泛型必须实现Parcelable接口");
+                } else if (actualTypeArgument instanceof WildcardType) {
+                    WildcardType wildcardType = (WildcardType) actualTypeArgument;
+                    Type[] types = wildcardType.getUpperBounds();
+                    for (Type type1 : types) {
+                        if (type1 == Parcelable.class) {
                             return bundle.getParcelableArrayList(key);
                         }
                     }

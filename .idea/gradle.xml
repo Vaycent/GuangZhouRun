@@ -13,7 +13,6 @@
             <option value="$PROJECT_DIR$/libs" />
             <option value="$PROJECT_DIR$/mapgame" />
             <option value="$PROJECT_DIR$/resource" />
-            <option value="$PROJECT_DIR$/router" />
             <option value="$PROJECT_DIR$/service" />
           </set>
         </option>

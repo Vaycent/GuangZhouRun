@@ -1,19 +1,19 @@
 package vaycent.service.router;
 
 
+import android.os.Parcelable;
+
 import vaycent.service.router.annotations.ClassName;
+import vaycent.service.router.annotations.Key;
 
 public class XRules {
 
-    public interface IMapGameActivity{
-//        @IntentFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)
-//        IntentWrapper toNewBookingActivity(@Key("DepPort") String depPort,
-//                                           @Key("ArrPort") String arrPort,
-//                                           @Key("FlightDate") String flightDate,
-//                                           @Key("FlightBackDate") String flightBackDate,
-//                                           @Key("AdultNum") @DefaultInt(1) Integer adultNum,
-//                                           @Key("ChildNum") @DefaultInt(0) Integer childNum);
-        @ClassName(XConst.MAP_GAME_ACTIVITY)
-        IntentWrapper toIMapGameActivity();
+
+    @ClassName(XConst.MAP_GAME_ACTIVITY)
+    public interface IMapGameActivity {
     }
+
+    @ClassName(XConst.MAP_TASK_ACTIVITY)
+    public interface IMapTaskActivity {
+        IntentWrapper to(@Key("mapTaskObj") Parcelable mapTaskObj);}
 }
