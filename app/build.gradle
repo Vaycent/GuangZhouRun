@@ -19,8 +19,9 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            shrinkResources true
         }
     }
 }
@@ -30,4 +31,5 @@ dependencies {
     compile project(":service")
     compile project(":mapgame")
 
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }

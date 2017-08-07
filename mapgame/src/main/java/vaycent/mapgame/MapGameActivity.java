@@ -1,5 +1,6 @@
 package vaycent.mapgame;
 
+import android.Manifest;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,12 +11,11 @@ import android.view.animation.BounceInterpolator;
 import android.view.animation.Interpolator;
 
 import com.amap.api.maps.AMap;
-import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.Projection;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
-import com.amap.api.maps.model.MyLocationStyle;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.util.ArrayList;
 
@@ -34,14 +34,37 @@ public class MapGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_game);
+        requestPermission();
 
         initData();
 
         initLayout();
 
         initMap(savedInstanceState);
+    }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mMapView.onSaveInstanceState(outState);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mMapView.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mMapView.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mMapView.onDestroy();
     }
 
     private void initData(){
@@ -71,14 +94,14 @@ public class MapGameActivity extends AppCompatActivity {
         mMapView = (MapView) findViewById(R.id.activity_map_game_mv_map);
         mMapView.onCreate(savedInstanceState);// 此方法必须重写
         mAMap = mMapView.getMap();
-        mMapUtils.setControllerShow(mAMap,false,true,false,false);
+        mAMap.setMapType(AMap.MAP_TYPE_NIGHT);
+        mMapUtils.setControllerShow(mAMap,false,false,false,false);
 
-        MyLocationStyle myLocationStyle  = new MyLocationStyle();//初始化定位蓝点样式类myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE);//连续定位、且将视角移动到地图中心点，定位点依照设备方向旋转，并且会跟随设备移动。（1秒1次定位）如果不设置myLocationType，默认也会执行此种模式。
-        myLocationStyle.interval(2000); //设置连续定位模式下的定位间隔，只在连续定位模式下生效，单次定位模式下不会生效。单位为毫秒。
-        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE_NO_CENTER);
-        mAMap.setMyLocationStyle(myLocationStyle);//设置定位蓝点的Style
-        mAMap.setMyLocationEnabled(true);// 设置为true表示启动显示定位蓝点，false表示隐藏定位蓝点并不进行定位，默认是false。
-
+//        MyLocationStyle myLocationStyle  = new MyLocationStyle();//初始化定位蓝点样式类myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE);//连续定位、且将视角移动到地图中心点，定位点依照设备方向旋转，并且会跟随设备移动。（1秒1次定位）如果不设置myLocationType，默认也会执行此种模式。
+//        myLocationStyle.interval(2000); //设置连续定位模式下的定位间隔，只在连续定位模式下生效，单次定位模式下不会生效。单位为毫秒。
+//        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE_NO_CENTER);
+//        mAMap.setMyLocationStyle(myLocationStyle);//设置定位蓝点的Style
+//        mAMap.setMyLocationEnabled(true);// 设置为true表示启动显示定位蓝点，false表示隐藏定位蓝点并不进行定位，默认是false。
 
 
 
@@ -89,14 +112,19 @@ public class MapGameActivity extends AppCompatActivity {
 
 
         mAMap.setOnMarkerClickListener(marker -> {
-            jumpPoint(marker);
-            return true;
+            if(null!=mAMap&&null!=marker){
+                jumpPoint(marker);
+                return true;
+            }
+            return false;
         });
 
 
         mAMap.setOnMapLoadedListener(() -> {
-            mAMap.moveCamera(CameraUpdateFactory.changeLatLng(mMapGameObjList.get(0).getLatLng()));
-            mAMap.moveCamera(CameraUpdateFactory.zoomTo(17));
+//            mAMap.moveCamera(CameraUpdateFactory.changeLatLng(mMapGameObjList.get(0).getLatLng()));
+//            mAMap.moveCamera(CameraUpdateFactory.zoomTo(17));
+
+            mMapUtils.moveCameraIncludeLatlngs(mAMap,mMapGameObjList.get(0).getLatLng(),mMapGameObjList.get(mMapGameObjList.size()-1).getLatLng());
         });
 
 
@@ -132,7 +160,7 @@ public class MapGameActivity extends AppCompatActivity {
                     handler.postDelayed(this, 16);
                 }else{
                     Log.e("Vaycent","marker.getId():"+marker.getId());
-                    int checkId = Integer.parseInt(marker.getId().replaceAll("Marker",""))-2;
+                    int checkId = Integer.parseInt(marker.getId().replaceAll("Marker",""))-1;
                     Log.e("Vaycent","checkId:"+checkId);
                     if(checkId>=0){
                         XRouter.get(XRules.IMapTaskActivity.class,MapGameActivity.this).to(mMapGameObjList.get(checkId)).start();
@@ -141,6 +169,22 @@ public class MapGameActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    private void requestPermission() {
+        RxPermissions.getInstance(this)
+                .request(Manifest.permission_group.LOCATION)
+                .subscribe(granted -> {
+                    if (granted) {
+                        // All requested permissions are granted
+                        Log.e("Vaycent","granted");
+                    } else {
+                        // At least one permission is denied
+                        Log.e("Vaycent","!granted");
+
+                    }
+                });
     }
 
 }

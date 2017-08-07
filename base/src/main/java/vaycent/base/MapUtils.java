@@ -5,9 +5,11 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 
 import com.amap.api.maps.AMap;
+import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.UiSettings;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.LatLngBounds;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 
@@ -23,6 +25,16 @@ public class MapUtils {
         mAMap.getUiSettings().setZoomControlsEnabled(scale);
         mAMap.getUiSettings().setCompassEnabled(compass);
 
+    }
+
+    /*  */
+    public void moveCameraIncludeLatlngs(AMap mAMap, LatLng start, LatLng end){
+        LatLngBounds bounds = new LatLngBounds.Builder()
+                .include(start)
+                .include(end)
+                .build();
+
+        mAMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 15));
     }
 
     /* 增加一个Poi Marker到地图上 */
