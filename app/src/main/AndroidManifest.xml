@@ -38,10 +38,9 @@
         </activity>
         <activity
             android:name="vaycent.mapgame.MapGameActivity"
-            android:theme="@style/Theme.Design.NoActionBar"/>
+            />
         <activity
-            android:name="vaycent.mapgame.MapTaskActivity"
-            android:theme="@style/Theme.Design.NoActionBar"/>
+            android:name="vaycent.mapgame.MapTaskActivity"/>
     </application>
 
 </manifest>

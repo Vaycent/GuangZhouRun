@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 
 import com.amap.api.maps.AMap;
+import com.amap.api.maps.CameraUpdate;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.UiSettings;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
@@ -34,7 +35,9 @@ public class MapUtils {
                 .include(end)
                 .build();
 
-        mAMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 15));
+
+        CameraUpdate mCameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, 10);
+        mAMap.moveCamera(mCameraUpdate);
     }
 
     /* 增加一个Poi Marker到地图上 */

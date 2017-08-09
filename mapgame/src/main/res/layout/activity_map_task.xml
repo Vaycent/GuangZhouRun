@@ -5,34 +5,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
+    android:padding="20dp"
     android:orientation="vertical"
-    tools:context="vaycent.mapgame.MapTaskActivity">
+    tools:context="vaycent.mapgame.MapTaskActivity"
+    android:background="@color/BLACK">
 
     <TextView
         android:id="@+id/activity_map_task_tv_question"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/WHITE"/>
 
 
     <TextView
         android:id="@+id/activity_map_task_tv_hint"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/WHITE"/>
 
     <EditText
         android:id="@+id/activity_map_task_et_answer"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/WHITE"/>
 
     <Button
         android:id="@+id/activity_map_task_btn_submit"
         android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/WHITE"
         android:text="提交"/>
 
 </LinearLayout>

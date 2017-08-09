@@ -1,10 +1,13 @@
 package vaycent.mapgame;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import vaycent.base.StatusbarUtils;
 
 public class MapTaskActivity extends AppCompatActivity {
 
@@ -25,6 +28,11 @@ public class MapTaskActivity extends AppCompatActivity {
     }
 
     private void initLayout(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            StatusbarUtils.translucentStatusBar(this,true);
+        }
+        getSupportActionBar().hide();
+
         if(null != mapGameObj){
             ((TextView)findViewById(R.id.activity_map_task_tv_question)).setText(mapGameObj.getQuestion());
             ((TextView)findViewById(R.id.activity_map_task_tv_hint)).setText(mapGameObj.getHint());

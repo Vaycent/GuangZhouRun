@@ -2,6 +2,7 @@ package vaycent.mapgame;
 
 import android.Manifest;
 import android.graphics.Point;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -20,6 +21,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import java.util.ArrayList;
 
 import vaycent.base.MapUtils;
+import vaycent.base.StatusbarUtils;
 import vaycent.service.router.XRouter;
 import vaycent.service.router.XRules;
 
@@ -87,6 +89,10 @@ public class MapGameActivity extends AppCompatActivity {
     }
 
     private void initLayout(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                StatusbarUtils.translucentStatusBar(this,true);
+        }
+        getSupportActionBar().hide();
 
     }
 
@@ -161,6 +167,7 @@ public class MapGameActivity extends AppCompatActivity {
                 }else{
                     Log.e("Vaycent","marker.getId():"+marker.getId());
                     int checkId = Integer.parseInt(marker.getId().replaceAll("Marker",""))-1;
+                    checkId = checkId%mMapGameObjList.size();
                     Log.e("Vaycent","checkId:"+checkId);
                     if(checkId>=0){
                         XRouter.get(XRules.IMapTaskActivity.class,MapGameActivity.this).to(mMapGameObjList.get(checkId)).start();
