@@ -92,6 +92,8 @@ public class MapGameActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 StatusbarUtils.translucentStatusBar(this,true);
         }
+
+
         getSupportActionBar().hide();
 
     }
