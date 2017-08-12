@@ -20,7 +20,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.util.ArrayList;
 
-import vaycent.base.MapUtils;
+import vaycent.base.AMapMapUtils;
 import vaycent.base.StatusbarUtils;
 import vaycent.service.router.XRouter;
 import vaycent.service.router.XRules;
@@ -29,7 +29,7 @@ public class MapGameActivity extends AppCompatActivity {
 
     private MapView mMapView;
     private AMap mAMap;
-    private MapUtils mMapUtils = new MapUtils();
+    private AMapMapUtils mAMapMapUtils = new AMapMapUtils();
     private ArrayList<MapGameObj> mMapGameObjList = new ArrayList();
 
     @Override
@@ -103,7 +103,7 @@ public class MapGameActivity extends AppCompatActivity {
         mMapView.onCreate(savedInstanceState);// 此方法必须重写
         mAMap = mMapView.getMap();
         mAMap.setMapType(AMap.MAP_TYPE_NIGHT);
-        mMapUtils.setControllerShow(mAMap,false,false,false,false);
+        mAMapMapUtils.setControllerShow(mAMap,false,false,false,false);
 
 //        MyLocationStyle myLocationStyle  = new MyLocationStyle();//初始化定位蓝点样式类myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE);//连续定位、且将视角移动到地图中心点，定位点依照设备方向旋转，并且会跟随设备移动。（1秒1次定位）如果不设置myLocationType，默认也会执行此种模式。
 //        myLocationStyle.interval(2000); //设置连续定位模式下的定位间隔，只在连续定位模式下生效，单次定位模式下不会生效。单位为毫秒。
@@ -115,7 +115,7 @@ public class MapGameActivity extends AppCompatActivity {
 
         for(int i=0;i<mMapGameObjList.size();i++){
             MapGameObj mMapGameObj = mMapGameObjList.get(i);
-            mMapUtils.addPoiMarkerToMap(this,mAMap,mMapGameObj.getLatLng(),mMapGameObj.getQuestion(),mMapGameObj.getHint());
+            mAMapMapUtils.addPoiMarkerToMap(this,mAMap,mMapGameObj.getLatLng(),mMapGameObj.getQuestion(),mMapGameObj.getHint());
         }
 
 
@@ -132,7 +132,7 @@ public class MapGameActivity extends AppCompatActivity {
 //            mAMap.moveCamera(CameraUpdateFactory.changeLatLng(mMapGameObjList.get(0).getLatLng()));
 //            mAMap.moveCamera(CameraUpdateFactory.zoomTo(17));
 
-            mMapUtils.moveCameraIncludeLatlngs(mAMap,mMapGameObjList.get(0).getLatLng(),mMapGameObjList.get(mMapGameObjList.size()-1).getLatLng());
+            mAMapMapUtils.moveCameraIncludeLatlngs(mAMap,mMapGameObjList.get(0).getLatLng(),mMapGameObjList.get(mMapGameObjList.size()-1).getLatLng());
         });
 
 

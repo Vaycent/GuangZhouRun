@@ -14,9 +14,9 @@ import com.amap.api.maps.model.LatLngBounds;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 
-public class MapUtils {
+public class AMapMapUtils {
 
-    public MapUtils(){
+    public AMapMapUtils(){
     }
     /* 控制地图上控件显示 */
     public void setControllerShow(AMap mAMap, boolean logo, boolean location, boolean scale, boolean compass){
