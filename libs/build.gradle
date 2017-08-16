@@ -22,8 +22,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
 
-    compile rootProject.ext.dependencies["support-v7"]
-    compile rootProject.ext.dependencies["support-design"]
+    compile rootProject.ext.dependencies["support_v7"]
+    compile rootProject.ext.dependencies["support_design"]
     compile rootProject.ext.dependencies["glide"]
     compile rootProject.ext.dependencies["constraint"]//约束布局
     compile rootProject.ext.dependencies["rxjava"]//rxjava
@@ -32,13 +32,14 @@ dependencies {
 
     compile rootProject.ext.dependencies["amap_navi"]
     compile rootProject.ext.dependencies["amap_search"]
-//    compile rootProject.ext.dependencies["amap_location"]
-    compile rootProject.ext.dependencies["umeng-analytics"]
+    compile rootProject.ext.dependencies["umeng_analytics"]
 
 
-    testCompile rootProject.ext.testdependencies["junit"]
+//    testCompile rootProject.ext.testdependencies["junit"]
 
-//    debugCompile rootProject.ext.testdependencies["leakcanary"];
-//    releaseCompile rootProject.ext.testdependencies["leakcanary-no-op"];
-//    testCompile rootProject.ext.testdependencies["leakcanary-no-op"];
+    debugCompile rootProject.ext.testdependencies["leakcanary"];
+    releaseCompile rootProject.ext.testdependencies["leakcanary_no_op"];
+    debugCompile rootProject.ext.testdependencies["blockcanary"];
+    releaseCompile rootProject.ext.testdependencies["blockcanary_no_op"];
+
 }

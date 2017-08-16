@@ -2,7 +2,11 @@ package vaycent.service.base;
 
 import android.app.Application;
 
+import com.github.moduth.blockcanary.BlockCanary;
+import com.squareup.leakcanary.LeakCanary;
 import com.umeng.analytics.MobclickAgent;
+
+import vaycent.service.helper.AppBlockCanaryContext;
 
 /**
  * Created by vaycent on 2017/8/16.
@@ -17,7 +21,9 @@ public class BaseApplication extends Application{
 
         initUmengAnalytics();
 
-//        MobclickAgent.setDebugMode( true );
+        initLeakCanary();
+
+        initBlockCanary();
 
     }
 
@@ -29,7 +35,15 @@ public class BaseApplication extends Application{
             EScenarioType. E_UM_GAME_OEM      　 游戏盒子场景类型
          */
         MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_UM_NORMAL);
+//        MobclickAgent.setDebugMode( true );
+    }
 
+    private void initLeakCanary(){
+        LeakCanary.install(this);
+    }
+
+    private void initBlockCanary(){
+        BlockCanary.install(this,new AppBlockCanaryContext()).start();
     }
 
 }

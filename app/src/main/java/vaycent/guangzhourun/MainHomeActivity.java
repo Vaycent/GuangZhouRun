@@ -112,6 +112,17 @@ public class MainHomeActivity extends BaseActivity
             Log.e("Vaycent","umengData:"+umengData);
         });
 
+
+        findViewById(R.id.include_main_home_btn_test).setOnClickListener(v ->{
+            try{
+                Thread.sleep(11000);
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        });
+
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(view -> Snackbar.make(view, "Hello", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show());
