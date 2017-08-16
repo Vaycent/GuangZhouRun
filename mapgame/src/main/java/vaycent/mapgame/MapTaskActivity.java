@@ -8,6 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
+
 import vaycent.base.StatusbarUtils;
 
 public class MapTaskActivity extends AppCompatActivity {
@@ -40,6 +43,7 @@ public class MapTaskActivity extends AppCompatActivity {
 
 
             findViewById(R.id.activity_map_task_btn_submit).setOnClickListener(v ->{
+                MobclickAgent.onEvent(this, "000003");
                 if(((EditText)findViewById(R.id.activity_map_task_et_answer)).getText().toString().trim().equals(mapGameObj.getAnswer())){
                     Toast.makeText(this,"恭喜你通关",Toast.LENGTH_SHORT).show();
                     finish();
@@ -48,8 +52,7 @@ public class MapTaskActivity extends AppCompatActivity {
                 }
             });
 
-            ((ImageView)findViewById(R.id.activity_map_task_iv_taskpic)).setBackground(getResources().getDrawable(R.drawable.ic_game_bg));
-
+            Glide.with(this).load(R.drawable.ic_game_bg).thumbnail(0.001f).into((ImageView)findViewById(R.id.activity_map_task_iv_taskpic));
 
         }
     }

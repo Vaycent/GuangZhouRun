@@ -9,6 +9,7 @@
     android:layout_height="match_parent"
     tools:context="vaycent.mapgame.MapTaskActivity"
     android:background="@color/BLACK"
+    android:scrollbars="none"
     >
 
     <LinearLayout
@@ -21,10 +22,9 @@
 
         <ImageView
             android:id="@+id/activity_map_task_iv_taskpic"
-            android:layout_width="500dp"
-            android:layout_height="500dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/ic_game_bg"/>
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_gravity="center_horizontal"/>
 
 
 

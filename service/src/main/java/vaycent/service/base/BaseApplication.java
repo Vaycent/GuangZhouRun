@@ -17,7 +17,7 @@ public class BaseApplication extends Application{
 
         initUmengAnalytics();
 
-
+//        MobclickAgent.setDebugMode( true );
 
     }
 
