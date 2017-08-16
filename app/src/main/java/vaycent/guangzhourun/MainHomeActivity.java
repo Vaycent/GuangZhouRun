@@ -7,7 +7,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -17,10 +16,11 @@ import android.widget.Toast;
 import com.umeng.analytics.MobclickAgent;
 
 import vaycent.base.UmengUtils;
+import vaycent.service.base.BaseActivity;
 import vaycent.service.router.XRouter;
 import vaycent.service.router.XRules;
 
-public class MainHomeActivity extends AppCompatActivity
+public class MainHomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -36,10 +36,6 @@ public class MainHomeActivity extends AppCompatActivity
     private void initToolBar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.activity_main_home_appbar_toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_main_home_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -115,6 +111,10 @@ public class MainHomeActivity extends AppCompatActivity
             Toast.makeText(this,"umengData:"+umengData,Toast.LENGTH_LONG).show();
             Log.e("Vaycent","umengData:"+umengData);
         });
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(view -> Snackbar.make(view, "Hello", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show());
 
     }
 
