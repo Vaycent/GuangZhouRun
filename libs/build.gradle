@@ -24,25 +24,19 @@ dependencies {
 
     compile rootProject.ext.dependencies["support-v7"]
     compile rootProject.ext.dependencies["support-design"]
-    compile rootProject.ext.dependencies["support-multidex"]
-    compile rootProject.ext.dependencies["glide"]//图片加载器
-    compile rootProject.ext.dependencies["gson"]//json解析器
+    compile rootProject.ext.dependencies["glide"]
     compile rootProject.ext.dependencies["constraint"]//约束布局
     compile rootProject.ext.dependencies["rxjava"]//rxjava
     compile rootProject.ext.dependencies["rxandroid"]//rxandroid
     compile rootProject.ext.dependencies["rxpermission"]//rxandroid
-    debugCompile rootProject.ext.dependencies["leakcanarydebug"]//debug用内存泄漏
-    testCompile rootProject.ext.dependencies["leakcanarytest"]//测试用内存泄漏
-    releaseCompile rootProject.ext.dependencies["leakcanaryrelease"]//release用内存泄漏
 
     compile rootProject.ext.dependencies["amap_navi"]
     compile rootProject.ext.dependencies["amap_search"]
 //    compile rootProject.ext.dependencies["amap_location"]
-
+    compile rootProject.ext.dependencies["umeng-analytics"]
 
 
     testCompile rootProject.ext.testdependencies["junit"]
-    compile rootProject.ext.testdependencies["stetho"]
 
 //    debugCompile rootProject.ext.testdependencies["leakcanary"];
 //    releaseCompile rootProject.ext.testdependencies["leakcanary-no-op"];

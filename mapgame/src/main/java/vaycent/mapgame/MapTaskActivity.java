@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,8 @@ public class MapTaskActivity extends AppCompatActivity {
                     Toast.makeText(this,"答案错误",Toast.LENGTH_SHORT).show();
                 }
             });
+
+            ((ImageView)findViewById(R.id.activity_map_task_iv_taskpic)).setBackground(getResources().getDrawable(R.drawable.ic_game_bg));
 
 
         }
