@@ -46,4 +46,7 @@ public class BaseApplication extends Application{
         BlockCanary.install(this,new AppBlockCanaryContext()).start();
     }
 
+
+
+
 }

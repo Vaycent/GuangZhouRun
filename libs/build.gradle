@@ -36,10 +36,14 @@ dependencies {
 
 
 //    testCompile rootProject.ext.testdependencies["junit"]
+//    debugCompile rootProject.ext.testdependencies["leakcanary"];
+//    releaseCompile rootProject.ext.testdependencies["leakcanary_no_op"];
+//    debugCompile rootProject.ext.testdependencies["blockcanary"];
+//    releaseCompile rootProject.ext.testdependencies["blockcanary_no_op"];
 
-    debugCompile rootProject.ext.testdependencies["leakcanary"];
-    releaseCompile rootProject.ext.testdependencies["leakcanary_no_op"];
-    debugCompile rootProject.ext.testdependencies["blockcanary"];
-    releaseCompile rootProject.ext.testdependencies["blockcanary_no_op"];
+    compile rootProject.ext.testdependencies["leakcanary"];
+    compile rootProject.ext.testdependencies["blockcanary"];
+
+
 
 }
