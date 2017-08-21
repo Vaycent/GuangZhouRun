@@ -24,9 +24,11 @@
             android:text="地图游戏"/>
 
         <Button
+            android:id="@+id/include_main_home_btn_mygoal"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="个人得分"/>
     </LinearLayout>
 
 

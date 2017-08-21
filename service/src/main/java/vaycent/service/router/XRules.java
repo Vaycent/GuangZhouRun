@@ -13,6 +13,10 @@ public class XRules {
     public interface IMapGameActivity {
     }
 
+    @ClassName(XConst.MY_GOAL_ACTIVITY)
+    public interface IMyGoalActivity {
+    }
+
     @ClassName(XConst.MAP_TASK_ACTIVITY)
     public interface IMapTaskActivity {
         IntentWrapper to(@Key("mapTaskObj") Parcelable mapTaskObj);}

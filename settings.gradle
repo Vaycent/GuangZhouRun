@@ -1,1 +1,1 @@
-include ':app', ':libs', ':resource', ':base', ':mapgame', ':service'
+include ':app', ':libs', ':resource', ':base', ':mapgame', ':service', ':mygoal'

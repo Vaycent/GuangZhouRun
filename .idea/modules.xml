@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/libs.iml" filepath="$PROJECT_DIR$/libs/libs.iml" />
       <module fileurl="file://$PROJECT_DIR$/mapgame/mapgame.iml" filepath="$PROJECT_DIR$/mapgame/mapgame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mygoal/mygoal.iml" filepath="$PROJECT_DIR$/mygoal/mygoal.iml" />
       <module fileurl="file://$PROJECT_DIR$/resource/resource.iml" filepath="$PROJECT_DIR$/resource/resource.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
     </modules>

@@ -47,10 +47,17 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="vaycent.mapgame.MapGameActivity"/>
+
+        <!-- MapGame 模块 -->
+        <activity
+            android:name="vaycent.mapgame.MapGameActivity"/>
         <activity
             android:name="vaycent.mapgame.MapTaskActivity"
             android:launchMode="singleTop"/>
+        <!-- MyGoal模块 -->
+        <activity
+            android:name="vaycent.mygoal.MyGoalActivity"/>
+
 
     </application>
 

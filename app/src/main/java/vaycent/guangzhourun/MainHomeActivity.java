@@ -20,6 +20,7 @@ import vaycent.service.base.BaseActivity;
 import vaycent.service.router.XRouter;
 import vaycent.service.router.XRules;
 
+
 public class MainHomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -104,6 +105,9 @@ public class MainHomeActivity extends BaseActivity
             MobclickAgent.onEvent(this, "000001");
             XRouter.getRaw(XRules.IMapGameActivity.class,this).start();});
 
+        findViewById(R.id.include_main_home_btn_mygoal).setOnClickListener(v ->{
+            XRouter.getRaw(XRules.IMyGoalActivity.class,this).start();});
+
 
         findViewById(R.id.include_main_home_btn_umengdata).setOnClickListener(v ->{
             MobclickAgent.onEvent(this, "000002");
@@ -120,8 +124,6 @@ public class MainHomeActivity extends BaseActivity
                 e.printStackTrace();
             }
         });
-
-
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(view -> Snackbar.make(view, "Hello", Snackbar.LENGTH_LONG)
