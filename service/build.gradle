@@ -27,6 +27,7 @@ android {
 }
 
 dependencies {
-    compile project(":libs")
     compile project(":resource")
+    compile project(":base")
+
 }

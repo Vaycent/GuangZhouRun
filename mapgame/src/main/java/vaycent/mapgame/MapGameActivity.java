@@ -2,11 +2,9 @@ package vaycent.mapgame;
 
 import android.Manifest;
 import android.graphics.Point;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.Interpolator;
@@ -21,11 +19,12 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import java.util.ArrayList;
 
 import vaycent.base.AMapMapUtils;
-import vaycent.base.StatusbarUtils;
+import vaycent.service.base.BaseActivity;
 import vaycent.service.router.XRouter;
 import vaycent.service.router.XRules;
 
-public class MapGameActivity extends AppCompatActivity {
+
+public class MapGameActivity extends BaseActivity {
 
     private MapView mMapView;
     private AMap mAMap;
@@ -89,12 +88,12 @@ public class MapGameActivity extends AppCompatActivity {
     }
 
     private void initLayout(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                StatusbarUtils.translucentStatusBar(this,true);
-        }
-
-
-        getSupportActionBar().hide();
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                StatusbarUtils.translucentStatusBar(this,true);
+//        }
+//
+//
+//        getSupportActionBar().hide();
 
     }
 
