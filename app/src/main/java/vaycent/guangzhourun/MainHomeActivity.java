@@ -32,6 +32,8 @@ public class MainHomeActivity extends BaseActivity
         initToolBar();
 
         initLayout();
+
+        BigerToast.myToast(this,"Hello");
     }
 
     private void initToolBar(){

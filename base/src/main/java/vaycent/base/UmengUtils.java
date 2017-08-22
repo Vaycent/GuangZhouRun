@@ -17,6 +17,7 @@ import java.lang.reflect.Method;
  */
 
 public class UmengUtils {
+    /* 获取权限判断结果 */
     public static boolean checkPermission(Context context, String permission) {
         boolean result = false;
         if (Build.VERSION.SDK_INT >= 23) {
@@ -40,6 +41,7 @@ public class UmengUtils {
         }
         return result;
     }
+    /* 获取用户设备的测试用deviceid信息*/
     public static String getDeviceInfo(Context context) {
         try {
             org.json.JSONObject json = new org.json.JSONObject();
