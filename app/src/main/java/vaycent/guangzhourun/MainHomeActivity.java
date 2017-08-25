@@ -37,7 +37,6 @@ public class MainHomeActivity extends BaseActivity
 
 
         TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk");
-//        TinkerInstaller.onReceiveUpgradePatch(this, "/storage/emulated/0/patch");
         Toast.makeText(this, "测试tinker专用", Toast.LENGTH_LONG).show();
  }
 
