@@ -35,6 +35,8 @@ dependencies {
     compile rootProject.ext.dependencies["umeng_analytics"]
 
 
+
+
 //    testCompile rootProject.ext.testdependencies["junit"]
 //    debugCompile rootProject.ext.testdependencies["leakcanary"];
 //    releaseCompile rootProject.ext.testdependencies["leakcanary_no_op"];

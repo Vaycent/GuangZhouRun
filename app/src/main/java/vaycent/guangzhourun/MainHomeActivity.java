@@ -1,6 +1,7 @@
 package vaycent.guangzhourun;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.tencent.tinker.lib.tinker.TinkerInstaller;
 import com.umeng.analytics.MobclickAgent;
 
 import vaycent.base.UmengUtils;
@@ -33,8 +35,11 @@ public class MainHomeActivity extends BaseActivity
 
         initLayout();
 
-        BigerToast.myToast(this,"Hello");
-    }
+
+        TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk");
+//        TinkerInstaller.onReceiveUpgradePatch(this, "/storage/emulated/0/patch");
+        Toast.makeText(this, "新改的新改的新改的新改的", Toast.LENGTH_LONG).show();
+ }
 
     private void initToolBar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.activity_main_home_appbar_toolbar);
