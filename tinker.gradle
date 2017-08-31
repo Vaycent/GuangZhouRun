@@ -1,0 +1,47 @@
+ext{
+
+    tinker = [
+            //for some reason, you may want to ignore tinkerBuild, such as instant run debug build?
+            tinkerEnabled : true,
+            //for normal build
+            //old apk file to build patch apk
+            tinkerOldApkPath : "${bakPath}/app-debug-1018-17-32-47.apk",
+            //proguard mapping file to build patch apk
+            tinkerApplyMappingPath : "${bakPath}/app-debug-1018-17-32-47-mapping.txt",
+            //resource R.txt to build patch apk, must input if there is resource changed
+            tinkerApplyResourcePath : "${bakPath}/app-debug-1018-17-32-47-R.txt",
+            //only use for build all flavor, if not, just ignore this field
+            tinkerBuildFlavorDirectory : "${bakPath}/app-1018-17-32-47"
+    ]
+
+    def bakPath = file("${buildDir}/bakApk/")
+
+
+
+    def getOldApkPath() {
+        return hasProperty("OLD_APK") ? OLD_APK : tinkerOldApkPath
+    }
+
+    def getApplyMappingPath() {
+        return hasProperty("APPLY_MAPPING") ? APPLY_MAPPING : tinkerApplyMappingPath
+    }
+
+    def getApplyResourceMappingPath() {
+        return hasProperty("APPLY_RESOURCE") ? APPLY_RESOURCE : tinkerApplyResourcePath
+    }
+
+    def getTinkerIdValue() {
+        return hasProperty("TINKER_ID") ? TINKER_ID : gitSha()
+    }
+
+    def buildWithTinker() {
+        return hasProperty("TINKER_ENABLE") ? TINKER_ENABLE : tinkerEnabled
+    }
+
+    def getTinkerBuildFlavorDirectory() {
+        return ext.tinkerBuildFlavorDirectory
+    }
+
+
+
+}
