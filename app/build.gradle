@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
-apply from: 'tinkerpatch.gradle'
 
 
 //android {
@@ -38,7 +37,7 @@ dependencies {
     compile rootProject.ext.dependencies["support_multidex"]
 
 
-    provided("com.tinkerpatch.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
+//    provided("com.tinkerpatch.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
     compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:${TINKERPATCH_VERSION}") { changing = true }
 }
 
@@ -65,7 +64,7 @@ android {
         }
 
         debug {
-            storeFile file("/Users/vaycent/Documents/keystore/GuangZhouRun.jks")
+//            storeFile file("/Users/vaycent/Documents/keystore/GuangZhouRun.jks")
         }
     }
 
@@ -103,3 +102,5 @@ android {
     }
 
 }
+
+apply from: 'tinkerpatch.gradle'

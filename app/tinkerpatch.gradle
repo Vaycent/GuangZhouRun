@@ -4,8 +4,8 @@ apply plugin: 'tinkerpatch-support'
  * TODO: 请按自己的需求修改为适应自己工程的参数
  */
 def bakPath = file("${buildDir}/bakApk/")
-def baseInfo = "app-0115-23-11-20"
-def variantName = "debug"
+def baseInfo = "app-1.0.5-0901-14-37-08"
+def variantName = "release"
 
 /**
  * 对于插件各参数的详细解析请参考
@@ -19,14 +19,15 @@ tinkerpatchSupport {
      需要你手动修改'tinker.sample.android.app'本示例的包名为你自己的包名, com.xxx前缀的包名不用修改
      **/
     tinkerEnable = true
-    reflectApplication = false
+    reflectApplication = true
+//    protectedApp = true
 
     autoBackupApkPath = "${bakPath}"
 
     appKey = "648f8c6a5d6608a8"
 
     /** 注意: 若发布新的全量包, appVersion一定要更新 **/
-    appVersion = "1.0.0"
+    appVersion = "1.0.5"
 
     def pathPrefix = "${bakPath}/${baseInfo}/${variantName}/"
     def name = "${project.name}-${variantName}"
@@ -39,6 +40,7 @@ tinkerpatchSupport {
      *  若有编译多flavors需求, 可以参照： https://github.com/TinkerPatch/tinkerpatch-flavors-sample
      *  注意: 除非你不同的flavor代码是不一样的,不然建议采用zip comment或者文件方式生成渠道信息（相关工具：walle 或者 packer-ng）
      **/
+
 }
 
 /**

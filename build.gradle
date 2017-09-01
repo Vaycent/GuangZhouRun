@@ -9,7 +9,7 @@ buildscript {
         classpath 'me.tatarka:gradle-retrolambda:3.2.0'
 //        classpath ('com.tencent.tinker:tinker-patch-gradle-plugin:1.8.1')
         //无需再单独引用tinker的其他库
-        classpath "com.tinkerpatch.sdk:tinkerpatch-gradle-plugin:${TINKERPATCH_VERSION}"
+        classpath ("com.tinkerpatch.sdk:tinkerpatch-gradle-plugin:${TINKERPATCH_VERSION}"){changing = true}
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -23,13 +23,13 @@ allprojects {
 
 }
 // See http://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html.
-if (JavaVersion.current().isJava8Compatible()) {
-    allprojects {
-        tasks.withType(Javadoc) {
-            options.addStringOption('Xdoclint:none', '-quiet')
-        }
-    }
-}
+//if (JavaVersion.current().isJava8Compatible()) {
+//    allprojects {
+//        tasks.withType(Javadoc) {
+//            options.addStringOption('Xdoclint:none', '-quiet')
+//        }
+//    }
+//}
 
 
 

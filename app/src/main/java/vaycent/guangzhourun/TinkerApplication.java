@@ -9,14 +9,12 @@ import android.support.multidex.MultiDex;
 import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 
-import com.tencent.tinker.anno.DefaultLifeCycle;
 import com.tencent.tinker.lib.listener.DefaultPatchListener;
 import com.tencent.tinker.lib.patch.UpgradePatch;
 import com.tencent.tinker.lib.reporter.DefaultLoadReporter;
 import com.tencent.tinker.lib.reporter.DefaultPatchReporter;
 import com.tencent.tinker.lib.service.PatchResult;
 import com.tencent.tinker.loader.app.DefaultApplicationLike;
-import com.tencent.tinker.loader.shareutil.ShareConstants;
 import com.tinkerpatch.sdk.TinkerPatch;
 import com.tinkerpatch.sdk.server.callback.ConfigRequestCallback;
 import com.tinkerpatch.sdk.server.callback.RollbackCallBack;
@@ -28,10 +26,10 @@ import java.util.HashMap;
 
 import static android.support.v7.app.AppCompatDelegate.MODE_NIGHT_YES;
 
-@DefaultLifeCycle(
-        application = "vaycent.guangzhourun.MainApplication",
-        flags = ShareConstants.TINKER_ENABLE_ALL
-)
+//@DefaultLifeCycle(
+//        application = "vaycent.guangzhourun.MainApplication",
+//        flags = ShareConstants.TINKER_ENABLE_ALL
+//)
 
 public class TinkerApplication extends DefaultApplicationLike{
     private static final String TAG = "TinkerApplication";
