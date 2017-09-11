@@ -53,14 +53,14 @@ android {
 
     signingConfigs {
         release {
-            try {
-                storeFile file("/Users/vaycent/Documents/keystore/GuangZhouRun.jks")
-                storePassword "7093945354"
-                keyAlias "key0"
-                keyPassword "7093945354"
-            } catch (ex) {
-                throw new InvalidUserDataException(ex.toString())
-            }
+//            try {
+//                storeFile file("/Users/vaycent/Documents/keystore/GuangZhouRun.jks")
+//                storePassword "7093945354"
+//                keyAlias "key0"
+//                keyPassword "7093945354"
+//            } catch (ex) {
+//                throw new InvalidUserDataException(ex.toString())
+//            }
         }
 
         debug {

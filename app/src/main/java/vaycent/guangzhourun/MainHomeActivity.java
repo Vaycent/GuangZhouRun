@@ -35,7 +35,7 @@ public class MainHomeActivity extends BaseActivity
 
 
 //        TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk");
-        Toast.makeText(this, "hahahahahahahahahhaha", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "原来的代码", Toast.LENGTH_LONG).show();
  }
 
     private void initToolBar(){
