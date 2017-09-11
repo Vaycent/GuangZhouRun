@@ -18,3 +18,7 @@ android:
     # if you need to run emulator(s) during your tests
     - sys-img-armeabi-v7a-android-19
     - sys-img-x86-android-17
+    
+    
+ notifications:
+   webhooks: https://oapi.dingtalk.com/robot/send?access_token=0ccda99017197a448cce1afa85e2e9506016bb483b902f51a1c539ccb26f3f44
