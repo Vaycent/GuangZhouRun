@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.Interpolator;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.Projection;
@@ -20,10 +22,8 @@ import java.util.ArrayList;
 
 import vaycent.base.AMapMapUtils;
 import vaycent.service.base.BaseActivity;
-import vaycent.service.router.XRouter;
-import vaycent.service.router.XRules;
 
-
+@Route(path = "/vaycent/mapgame/MapGameActivity")
 public class MapGameActivity extends BaseActivity {
 
     private MapView mMapView;
@@ -94,6 +94,9 @@ public class MapGameActivity extends BaseActivity {
 //
 //
 //        getSupportActionBar().hide();
+
+
+
 
     }
 
@@ -171,7 +174,9 @@ public class MapGameActivity extends BaseActivity {
                     checkId = checkId%mMapGameObjList.size();
                     Log.e("Vaycent","checkId:"+checkId);
                     if(checkId>=0){
-                        XRouter.get(XRules.IMapTaskActivity.class,MapGameActivity.this).to(mMapGameObjList.get(checkId)).start();
+                        ARouter.getInstance().build("/vaycent/mapgame/MapTaskActivity")
+                                .withParcelable("mapTaskObj", mMapGameObjList.get(checkId))
+                                .navigation();
                     }
                 }
             }

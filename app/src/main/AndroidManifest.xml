@@ -47,20 +47,9 @@
             android:name=".MainHomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <!-- MapGame 模块 -->
-        <activity
-            android:name="vaycent.mapgame.MapGameActivity"/>
-        <activity
-            android:name="vaycent.mapgame.MapTaskActivity"
-            android:launchMode="singleTop"/>
-        <!-- MyGoal模块 -->
-        <activity
-            android:name="vaycent.mygoal.MyGoalActivity"/>
 
 
     </application>

@@ -108,11 +108,6 @@ andResGuard {
     // add <yourpackagename>.R.drawable.icon into whitelist.
     // because the launcher will get the icon with his name
     whiteList = [
-            // others
-            "R.string.company_name"
-            , "R.drawable.mood_1", "R.drawable.mood_2", "R.drawable.mood_3", "R.drawable.mood_4", "R.drawable.mood_5"
-            , "R.drawable.smile_1", "R.drawable.smile_2", "R.drawable.smile_3", "R.drawable.smile_4", "R.drawable.smile_5",
-
             // your icon
             "R.drawable.icon",
             // for fabric

@@ -1,17 +1,16 @@
 package vaycent.mapgame;
 
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
-import com.umeng.analytics.MobclickAgent;
 
 import vaycent.service.base.BaseActivity;
 
-
+@Route(path = "/vaycent/mapgame/MapTaskActivity")
 public class MapTaskActivity extends BaseActivity {
 
     private MapGameObj mapGameObj;
@@ -42,13 +41,16 @@ public class MapTaskActivity extends BaseActivity {
 
 
             findViewById(R.id.activity_map_task_btn_submit).setOnClickListener(v ->{
-                MobclickAgent.onEvent(this, "000003");
-                if(((EditText)findViewById(R.id.activity_map_task_et_answer)).getText().toString().trim().equals(mapGameObj.getAnswer())){
-                    Toast.makeText(this,"恭喜你通关",Toast.LENGTH_SHORT).show();
-                    finish();
-                }else{
-                    Toast.makeText(this,"答案错误",Toast.LENGTH_SHORT).show();
-                }
+//                XRouter.getRaw(XRules.IMyGoalActivity.class,this).start();
+                ARouter.getInstance().build("/vaycent/mygoal/MyGoalActivity").navigation();
+
+//                MobclickAgent.onEvent(this, "000003");
+//                if(((EditText)findViewById(R.id.activity_map_task_et_answer)).getText().toString().trim().equals(mapGameObj.getAnswer())){
+//                    Toast.makeText(this,"恭喜你通关",Toast.LENGTH_SHORT).show();
+//                    finish();
+//                }else{
+//                    Toast.makeText(this,"答案错误",Toast.LENGTH_SHORT).show();
+//                }
             });
 
             Glide.with(this).load(R.drawable.ic_game_bg).thumbnail(0.001f).into((ImageView)findViewById(R.id.activity_map_task_iv_taskpic));

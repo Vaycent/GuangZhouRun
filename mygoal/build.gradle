@@ -1,4 +1,8 @@
-apply plugin: 'com.android.library'
+if(IS_DEBUG.toBoolean()){
+    apply plugin: 'com.android.application'
+}else{
+    apply plugin: 'com.android.library'
+}
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
@@ -14,6 +18,12 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
     }
     buildTypes {
         release {
@@ -25,4 +35,6 @@ android {
 
 dependencies {
     compile project(":service")
+    compile rootProject.ext.dependencies["arouter_api"]
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
 }

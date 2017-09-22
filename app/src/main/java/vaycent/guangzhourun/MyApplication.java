@@ -15,9 +15,6 @@ import vaycent.service.base.BaseApplication;
 import static android.app.UiModeManager.MODE_NIGHT_YES;
 
 public class MyApplication extends BaseApplication {
-    public static Context context;
-    private static final String TAG = "tinkerTest";
-
     private ApplicationLike tinkerApplicationLike;
 
     public MyApplication() {
@@ -33,12 +30,14 @@ public class MyApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        initTinker();
+
+        initTinkerPatch();
+
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
 
     }
 
-    private void initTinker() {
+    private void initTinkerPatch() {
         if (BuildConfig.TINKER_ENABLE) {
 
             tinkerApplicationLike = TinkerPatchApplicationLike.getTinkerPatchApplicationLike();
@@ -46,16 +45,16 @@ public class MyApplication extends BaseApplication {
             TinkerPatch.init(tinkerApplicationLike)
                     .reflectPatchLibrary()
                     .setPatchRollbackOnScreenOff(true)
-                    .setPatchRestartOnSrceenOff(true);
-            TinkerPatch.with().fetchPatchUpdate(true);
-//                    .setFetchPatchIntervalByHours(3);
+                    .setPatchRestartOnSrceenOff(true)
+//            TinkerPatch.with().fetchPatchUpdate(true);
+                    .setFetchPatchIntervalByHours(3);
 
 
             // 获取当前的补丁版本
-            Log.d(TAG, "current patch version is " + TinkerPatch.with().getPatchVersion());
+            Log.d("Tinker", "current patch version is " + TinkerPatch.with().getPatchVersion());
 
             //每隔3个小时去访问后台时候有更新,通过handler实现轮训的效果
-//            TinkerPatch.with().fetchPatchUpdateAndPollWithInterval();
+            TinkerPatch.with().fetchPatchUpdateAndPollWithInterval();
         }
     }
 

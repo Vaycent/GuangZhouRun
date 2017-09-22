@@ -2,46 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 
 
-//android {
-//    compileSdkVersion rootProject.ext.android.compileSdkVersion
-//    buildToolsVersion rootProject.ext.android.buildToolsVersion
-//
-//    compileOptions {
-//        sourceCompatibility JavaVersion.VERSION_1_8
-//        targetCompatibility JavaVersion.VERSION_1_8
-//    }
-//    defaultConfig {
-//        applicationId rootProject.ext.android.applicationId
-//        minSdkVersion rootProject.ext.android.minSdkVersion
-//        targetSdkVersion rootProject.ext.android.targetSdkVersion
-//        versionCode rootProject.ext.android.versionCode
-//        versionName rootProject.ext.android.versionName
-//        multiDexEnabled rootProject.ext.android.multiDexEnabled
-//    }
-//    buildTypes {
-//        release {
-//            minifyEnabled true
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//            shrinkResources true
-//        }
-//    }
-//}
-
-dependencies {
-    compile project(":service")
-    compile project(":mapgame")
-    compile project(":mygoal")
-
-//    provided rootProject.ext.dependencies["tinker_anno"]
-//    compile rootProject.ext.dependencies["tinker_lib"]
-    compile rootProject.ext.dependencies["support_multidex"]
-
-
-//    provided("com.tinkerpatch.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
-    compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:${TINKERPATCH_VERSION}") { changing = true }
-}
-
-
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -77,8 +37,13 @@ android {
         versionName rootProject.ext.android.versionName
         multiDexEnabled rootProject.ext.android.multiDexEnabled
 
-        multiDexKeepProguard file("tinkerMultidexKeep.pro")
-        //keep specific classes using proguard syntax
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+
+//        multiDexKeepProguard file("tinkerMultidexKeep.pro")
     }
 
     buildTypes {
@@ -94,13 +59,27 @@ android {
             minifyEnabled false
             signingConfig signingConfigs.debug
         }
+
     }
+
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
         }
     }
 
+}
+
+dependencies {
+    compile project(":service")
+    if (!IS_DEBUG.toBoolean()) compile project(':mapgame')
+    if (!IS_DEBUG.toBoolean()) compile project(':mygoal')
+
+    compile rootProject.ext.dependencies["support_multidex"]
+    compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:${TINKERPATCH_VERSION}") { changing = true }
+
+    compile rootProject.ext.dependencies["arouter_api"]
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
 }
 
 apply from: 'tinkerpatch.gradle'

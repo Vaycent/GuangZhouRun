@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="vaycent.mygoal"/>
-    <!---->
+          package="vaycent.mygoal">
 
-    <!--<application-->
-        <!--android:allowBackup="true"-->
-        <!--android:label="@string/app_name"-->
-        <!--android:supportsRtl="true">-->
-        <!--<activity android:name=".MyGoalActivity">-->
-        <!--</activity>-->
-    <!--</application>-->
+    <application
+        android:name="vaycent.service.base.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/app_icon"
+        android:label="mygoal"
+        android:roundIcon="@mipmap/app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MyGoalActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+
+
+
+</manifest>
 

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -9,13 +10,10 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+
+        buildConfigField "boolean", "appIsDebug", "${IS_DEBUG}"
     }
-//    buildTypes {
-//        release {
-//            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//        }
-//    }
+
 }
 
 dependencies {
@@ -34,17 +32,15 @@ dependencies {
     compile rootProject.ext.dependencies["amap_search"]
     compile rootProject.ext.dependencies["umeng_analytics"]
 
-
-
-
 //    testCompile rootProject.ext.testdependencies["junit"]
 //    debugCompile rootProject.ext.testdependencies["leakcanary"];
 //    releaseCompile rootProject.ext.testdependencies["leakcanary_no_op"];
 //    debugCompile rootProject.ext.testdependencies["blockcanary"];
 //    releaseCompile rootProject.ext.testdependencies["blockcanary_no_op"];
 
-    compile rootProject.ext.testdependencies["leakcanary"];
-    compile rootProject.ext.testdependencies["blockcanary"];
+    compile rootProject.ext.testdependencies["leakcanary"]
+    compile rootProject.ext.testdependencies["blockcanary"]
+
 
 
 

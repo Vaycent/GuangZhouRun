@@ -106,7 +106,10 @@ public class MainHomeActivity extends BaseActivity
     private void initLayout(){
         findViewById(R.id.include_main_home_btn_tomapgame).setOnClickListener(v ->{
             MobclickAgent.onEvent(this, "000001");
-            XRouter.getRaw(XRules.IMapGameActivity.class,this).start();});
+            XRouter.getRaw(XRules.IMapGameActivity.class,this).start();
+//            ARouter.getInstance().build("/test/1").navigation();
+        });
+
 
         findViewById(R.id.include_main_home_btn_mygoal).setOnClickListener(v ->{
             XRouter.getRaw(XRules.IMyGoalActivity.class,this).start();});
