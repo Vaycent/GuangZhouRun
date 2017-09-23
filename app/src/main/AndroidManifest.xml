@@ -29,7 +29,7 @@
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppThemeNight.NoActionBar"
-        tools:replace="android:name,android:allowBackup,android:label">
+        tools:replace="name,allowBackup,icon,label,theme">
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="aaeba5cca00888b99c0c865cb4c6f982"/>
