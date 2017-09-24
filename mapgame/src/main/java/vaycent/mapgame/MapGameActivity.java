@@ -20,10 +20,11 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.util.ArrayList;
 
+import vaycent.RouterPath;
 import vaycent.base.AMapMapUtils;
-import vaycent.service.base.BaseActivity;
+import vaycent.base.BaseActivity;
 
-@Route(path = "/vaycent/mapgame/MapGameActivity")
+@Route(path = RouterPath.MAP_GAME)
 public class MapGameActivity extends BaseActivity {
 
     private MapView mMapView;
@@ -174,7 +175,7 @@ public class MapGameActivity extends BaseActivity {
                     checkId = checkId%mMapGameObjList.size();
                     Log.e("Vaycent","checkId:"+checkId);
                     if(checkId>=0){
-                        ARouter.getInstance().build("/vaycent/mapgame/MapTaskActivity")
+                        ARouter.getInstance().build(RouterPath.MAP_TASK)
                                 .withParcelable("mapTaskObj", mMapGameObjList.get(checkId))
                                 .navigation();
                     }

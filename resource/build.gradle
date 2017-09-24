@@ -19,5 +19,6 @@ android {
 }
 
 dependencies {
-    compile project(":libs")
+    compile rootProject.ext.dependencies["support_v7"]
+    compile rootProject.ext.dependencies["support_design"]
 }

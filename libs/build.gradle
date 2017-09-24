@@ -20,8 +20,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
 
-    compile rootProject.ext.dependencies["support_v7"]
-    compile rootProject.ext.dependencies["support_design"]
     compile rootProject.ext.dependencies["glide"]
     compile rootProject.ext.dependencies["constraint"]//约束布局
     compile rootProject.ext.dependencies["rxjava"]//rxjava

@@ -4,10 +4,11 @@ import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
-import vaycent.service.base.BaseActivity;
+import vaycent.RouterPath;
+import vaycent.base.BaseActivity;
 
 
-@Route(path = "/vaycent/mygoal/MyGoalActivity")
+@Route(path = RouterPath.MY_GOAL)
 public class MyGoalActivity extends BaseActivity {
 
     @Override

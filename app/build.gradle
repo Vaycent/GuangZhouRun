@@ -71,7 +71,7 @@ android {
 }
 
 dependencies {
-    compile project(":service")
+    compile project(":base")
     if (!IS_DEBUG.toBoolean()) compile project(':mapgame')
     if (!IS_DEBUG.toBoolean()) compile project(':mygoal')
 

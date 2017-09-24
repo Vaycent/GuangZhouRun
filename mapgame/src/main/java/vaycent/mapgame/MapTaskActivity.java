@@ -8,9 +8,10 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 
-import vaycent.service.base.BaseActivity;
+import vaycent.RouterPath;
+import vaycent.base.BaseActivity;
 
-@Route(path = "/vaycent/mapgame/MapTaskActivity")
+@Route(path = RouterPath.MAP_TASK)
 public class MapTaskActivity extends BaseActivity {
 
     private MapGameObj mapGameObj;
@@ -41,8 +42,7 @@ public class MapTaskActivity extends BaseActivity {
 
 
             findViewById(R.id.activity_map_task_btn_submit).setOnClickListener(v ->{
-//                XRouter.getRaw(XRules.IMyGoalActivity.class,this).start();
-                ARouter.getInstance().build("/vaycent/mygoal/MyGoalActivity").navigation();
+                ARouter.getInstance().build(RouterPath.MY_GOAL).navigation();
 
 //                MobclickAgent.onEvent(this, "000003");
 //                if(((EditText)findViewById(R.id.activity_map_task_et_answer)).getText().toString().trim().equals(mapGameObj.getAnswer())){

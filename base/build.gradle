@@ -27,6 +27,8 @@ android {
 
 dependencies {
     compile project(":resource")
+    compile project(":libs")
+
     compile rootProject.ext.dependencies["arouter_api"]
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
 }

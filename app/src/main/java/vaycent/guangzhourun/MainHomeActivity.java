@@ -13,14 +13,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.umeng.analytics.MobclickAgent;
 
+import vaycent.RouterPath;
+import vaycent.base.BaseActivity;
 import vaycent.base.UmengUtils;
-import vaycent.service.base.BaseActivity;
-import vaycent.service.router.XRouter;
-import vaycent.service.router.XRules;
 
 
+@Route(path = RouterPath.MAIN_HOME)
 public class MainHomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -106,13 +108,13 @@ public class MainHomeActivity extends BaseActivity
     private void initLayout(){
         findViewById(R.id.include_main_home_btn_tomapgame).setOnClickListener(v ->{
             MobclickAgent.onEvent(this, "000001");
-            XRouter.getRaw(XRules.IMapGameActivity.class,this).start();
-//            ARouter.getInstance().build("/test/1").navigation();
+            ARouter.getInstance().build(RouterPath.MAP_GAME).navigation();
         });
 
 
         findViewById(R.id.include_main_home_btn_mygoal).setOnClickListener(v ->{
-            XRouter.getRaw(XRules.IMyGoalActivity.class,this).start();});
+            ARouter.getInstance().build(RouterPath.MY_GOAL).navigation();
+        });
 
 
         findViewById(R.id.include_main_home_btn_umengdata).setOnClickListener(v ->{

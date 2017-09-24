@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    compile project(":service")
+    compile project(":base")
     compile rootProject.ext.dependencies["arouter_api"]
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
 }
