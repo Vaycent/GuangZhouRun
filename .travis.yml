@@ -12,7 +12,13 @@ before_install:
 
 script:
   - ./gradlew assembleRelease
+
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+directories:
+- $HOME/.gradle/caches/
+- $HOME/.gradle/wrapper/
     
-    
- notifications:
-   webhooks: https://oapi.dingtalk.com/robot/send?access_token=0ccda99017197a448cce1afa85e2e9506016bb483b902f51a1c539ccb26f3f44
+notifications:
+webhooks: https://oapi.dingtalk.com/robot/send？access_token=0ccda99017197a448cce1afa85e2e9506016bb483b902f51a1c539ccb26f3f44

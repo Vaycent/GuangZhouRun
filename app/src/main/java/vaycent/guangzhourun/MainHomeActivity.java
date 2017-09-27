@@ -37,7 +37,7 @@ public class MainHomeActivity extends BaseActivity
 
 
 //        TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk");
-        Toast.makeText(this, "11111hahhahahaha", Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, "11111hahhahahaha", Toast.LENGTH_LONG).show();
  }
 
     private void initToolBar(){
@@ -108,7 +108,7 @@ public class MainHomeActivity extends BaseActivity
     private void initLayout(){
         findViewById(R.id.include_main_home_btn_tomapgame).setOnClickListener(v ->{
             MobclickAgent.onEvent(this, "000001");
-            ARouter.getInstance().build(RouterPath.MAP_GAME).navigation();
+            ARouter.getInstance().build("/vaycent/mapgame/MapGameActivity").navigation();
         });
 
 
