@@ -37,4 +37,4 @@ directories:
 - $HOME/.gradle/wrapper/
     
 notifications:
-webhooks: https://oapi.dingtalk.com/robot/send？access_token=0ccda99017197a448cce1afa85e2e9506016bb483b902f51a1c539ccb26f3f44
+webhooks: https://oapi.dingtalk.com/robot/send?access_token=0ccda99017197a448cce1afa85e2e9506016bb483b902f51a1c539ccb26f3f44
