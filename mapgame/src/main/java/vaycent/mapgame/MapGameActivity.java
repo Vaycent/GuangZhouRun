@@ -21,8 +21,8 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import java.util.ArrayList;
 
 import vaycent.RouterPath;
-import vaycent.base.AMapMapUtils;
 import vaycent.base.BaseActivity;
+import vaycent.utils.AMapMapUtils;
 
 @Route(path = RouterPath.MAP_GAME)
 public class MapGameActivity extends BaseActivity {

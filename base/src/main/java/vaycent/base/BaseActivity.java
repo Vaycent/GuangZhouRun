@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.umeng.analytics.MobclickAgent;
 
+import vaycent.utils.StatusbarUtils;
+
 /**
  * Created by vaycent on 2017/8/16.
  */
@@ -17,7 +19,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                vaycent.base.StatusbarUtils.translucentStatusBar(this,true);
+                StatusbarUtils.translucentStatusBar(this,true);
         }
     }
 

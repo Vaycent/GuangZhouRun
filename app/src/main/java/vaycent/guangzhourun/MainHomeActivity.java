@@ -19,7 +19,7 @@ import com.umeng.analytics.MobclickAgent;
 
 import vaycent.RouterPath;
 import vaycent.base.BaseActivity;
-import vaycent.base.UmengUtils;
+import vaycent.utils.UmengUtils;
 
 
 @Route(path = RouterPath.MAIN_HOME)
@@ -47,7 +47,7 @@ public class MainHomeActivity extends BaseActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_main_home_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.activity_main_home_nav_view);

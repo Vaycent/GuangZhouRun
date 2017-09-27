@@ -1,4 +1,4 @@
-package vaycent.base;
+package vaycent.utils;
 
 import android.app.Activity;
 import android.graphics.Color;

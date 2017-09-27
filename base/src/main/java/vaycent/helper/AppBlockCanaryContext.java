@@ -1,4 +1,4 @@
-package vaycent.service.helper;
+package vaycent.helper;
 
 import android.content.Context;
 

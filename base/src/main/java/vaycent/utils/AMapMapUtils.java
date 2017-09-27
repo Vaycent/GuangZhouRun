@@ -1,4 +1,4 @@
-package vaycent.base;
+package vaycent.utils;
 
 
 import android.content.Context;
@@ -13,6 +13,8 @@ import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.LatLngBounds;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
+
+import vaycent.base.R;
 
 public class AMapMapUtils {
 
@@ -48,7 +50,7 @@ public class AMapMapUtils {
         mMarkerOptions.title(title);
         mMarkerOptions.snippet(msg);
         mMarkerOptions.draggable(false);//设置marker是否可拖动
-        mMarkerOptions.icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(context.getResources(),R.drawable.ic_mapgame_pointmarker)));
+        mMarkerOptions.icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_mapgame_pointmarker)));
         mMarkerOptions.setFlat(true);//设置贴地效果，可双指下拉地图查看效果
         Marker marker = mAMap.addMarker(mMarkerOptions);
         //动画部分

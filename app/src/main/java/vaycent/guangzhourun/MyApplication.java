@@ -10,7 +10,7 @@ import com.tencent.tinker.loader.app.ApplicationLike;
 import com.tinkerpatch.sdk.TinkerPatch;
 import com.tinkerpatch.sdk.loader.TinkerPatchApplicationLike;
 
-import vaycent.service.base.BaseApplication;
+import vaycent.base.BaseApplication;
 
 import static android.app.UiModeManager.MODE_NIGHT_YES;
 

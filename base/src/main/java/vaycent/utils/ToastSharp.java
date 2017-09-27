@@ -1,4 +1,4 @@
-package vaycent.base;
+package vaycent.utils;
 
 import android.content.Context;
 import android.view.LayoutInflater;

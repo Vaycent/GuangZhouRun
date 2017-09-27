@@ -130,6 +130,11 @@
     public void *(android.webkit.WebView, jav.lang.String);
 }
 #----------------------------------------------------------------------------
+# ARouter
+-keep public class com.alibaba.android.arouter.routers.**{*;}
+-keep class * implements com.alibaba.android.arouter.facade.template.ISyringer{*;}
+-dontwarn com.alibaba.android.arouter.**
+
 #---------------------------------------------------------------------------------------------------
 
 

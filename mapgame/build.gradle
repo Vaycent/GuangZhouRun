@@ -15,10 +15,15 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     defaultConfig {
+        if (IS_DEBUG.toBoolean()) {
+//            applicationId rootProject.ext.android.applicationId
+            versionCode rootProject.ext.android.versionCode
+            versionName rootProject.ext.android.versionName
+
+        }
+
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -38,6 +43,5 @@ dependencies {
     compile project(":base")
     compile rootProject.ext.dependencies["arouter_api"]
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
-//    compile 'com.alibaba:arouter-api:1.2.2'
-//    annotationProcessor 'com.alibaba:arouter-compiler:1.1.3'
+
 }
