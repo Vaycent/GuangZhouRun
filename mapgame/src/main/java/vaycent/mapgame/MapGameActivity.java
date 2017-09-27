@@ -24,7 +24,7 @@ import vaycent.RouterPath;
 import vaycent.base.AMapMapUtils;
 import vaycent.base.BaseActivity;
 
-@Route(path = "/vaycent/mapgame/MapGameActivity")
+@Route(path = RouterPath.MAP_GAME)
 public class MapGameActivity extends BaseActivity {
 
     private MapView mMapView;

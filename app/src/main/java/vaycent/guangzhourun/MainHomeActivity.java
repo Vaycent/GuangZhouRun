@@ -108,7 +108,7 @@ public class MainHomeActivity extends BaseActivity
     private void initLayout(){
         findViewById(R.id.include_main_home_btn_tomapgame).setOnClickListener(v ->{
             MobclickAgent.onEvent(this, "000001");
-            ARouter.getInstance().build("/vaycent/mapgame/MapGameActivity").navigation();
+            ARouter.getInstance().build(RouterPath.MAP_GAME).navigation();
         });
 
 
