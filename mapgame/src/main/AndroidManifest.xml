@@ -10,16 +10,17 @@
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppThemeNight.NoActionBar">
-        <activity android:name=".MapGameActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+
+        <activity android:name=".ModuleEntranceActivity">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
 
+        <activity android:name=".MapGameActivity"/>
         <activity
             android:name=".MapTaskActivity"
-
             android:launchMode="singleTop">
         </activity>
     </application>

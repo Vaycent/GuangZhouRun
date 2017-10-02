@@ -3,7 +3,6 @@ package vaycent.guangzhourun;
 
 import android.content.Context;
 import android.support.multidex.MultiDex;
-import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 
 import com.tencent.tinker.loader.app.ApplicationLike;
@@ -11,8 +10,6 @@ import com.tinkerpatch.sdk.TinkerPatch;
 import com.tinkerpatch.sdk.loader.TinkerPatchApplicationLike;
 
 import vaycent.base.BaseApplication;
-
-import static android.app.UiModeManager.MODE_NIGHT_YES;
 
 public class MyApplication extends BaseApplication {
     private ApplicationLike tinkerApplicationLike;
@@ -33,7 +30,7 @@ public class MyApplication extends BaseApplication {
 
         initTinkerPatch();
 
-        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
+//        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
 
     }
 

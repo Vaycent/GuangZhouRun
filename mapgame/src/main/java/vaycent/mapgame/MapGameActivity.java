@@ -105,7 +105,7 @@ public class MapGameActivity extends BaseActivity {
         mMapView = (MapView) findViewById(R.id.activity_map_game_mv_map);
         mMapView.onCreate(savedInstanceState);// 此方法必须重写
         mAMap = mMapView.getMap();
-        mAMap.setMapType(AMap.MAP_TYPE_NIGHT);
+        mAMap.setMapType(AMap.MAP_TYPE_NORMAL);
         mAMapMapUtils.setControllerShow(mAMap,false,false,false,false);
 
 //        MyLocationStyle myLocationStyle  = new MyLocationStyle();//初始化定位蓝点样式类myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE);//连续定位、且将视角移动到地图中心点，定位点依照设备方向旋转，并且会跟随设备移动。（1秒1次定位）如果不设置myLocationType，默认也会执行此种模式。

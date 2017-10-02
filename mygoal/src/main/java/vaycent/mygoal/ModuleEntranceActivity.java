@@ -1,4 +1,4 @@
-package vaycent.mapgame;
+package vaycent.mygoal;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import vaycent.RouterPath;
 import vaycent.framework.utils.StatusbarUtils;
 
+/**
+ * Created by vaycent on 2017/10/3.
+ */
 
 public class ModuleEntranceActivity extends AppCompatActivity {
     @Override
@@ -20,9 +23,9 @@ public class ModuleEntranceActivity extends AppCompatActivity {
             StatusbarUtils.translucentStatusBar(this,true);
         }
 
-        Toast.makeText(this,RouterPath.MAP_GAME,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,RouterPath.MY_GOAL,Toast.LENGTH_SHORT).show();
 
-        ARouter.getInstance().build(RouterPath.MAP_GAME).navigation();
+        ARouter.getInstance().build(RouterPath.MY_GOAL).navigation();
     }
 
 }
