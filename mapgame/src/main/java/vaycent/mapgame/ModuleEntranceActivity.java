@@ -23,6 +23,8 @@ public class ModuleEntranceActivity extends AppCompatActivity {
         Toast.makeText(this,RouterPath.MAP_GAME,Toast.LENGTH_SHORT).show();
 
         ARouter.getInstance().build(RouterPath.MAP_GAME).navigation();
+
+        finish();
     }
 
 }

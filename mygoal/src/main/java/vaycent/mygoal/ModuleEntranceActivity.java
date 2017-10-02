@@ -26,6 +26,8 @@ public class ModuleEntranceActivity extends AppCompatActivity {
         Toast.makeText(this,RouterPath.MY_GOAL,Toast.LENGTH_SHORT).show();
 
         ARouter.getInstance().build(RouterPath.MY_GOAL).navigation();
+
+        finish();
     }
 
 }

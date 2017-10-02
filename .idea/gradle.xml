@@ -10,8 +10,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/base" />
+            <option value="$PROJECT_DIR$/frameresource" />
             <option value="$PROJECT_DIR$/framework" />
-            <option value="$PROJECT_DIR$/libs" />
             <option value="$PROJECT_DIR$/mapgame" />
             <option value="$PROJECT_DIR$/mygoal" />
           </set>
