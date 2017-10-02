@@ -19,7 +19,7 @@ import com.umeng.analytics.MobclickAgent;
 
 import vaycent.RouterPath;
 import vaycent.base.BaseActivity;
-import vaycent.utils.UmengUtils;
+import vaycent.framework.utils.UmengUtils;
 
 
 @Route(path = RouterPath.MAIN_HOME)

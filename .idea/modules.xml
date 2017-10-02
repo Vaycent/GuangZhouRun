@@ -5,10 +5,10 @@
       <module fileurl="file://$PROJECT_DIR$/GuangZhouRun.iml" filepath="$PROJECT_DIR$/GuangZhouRun.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework/framework.iml" filepath="$PROJECT_DIR$/framework/framework.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/libs.iml" filepath="$PROJECT_DIR$/libs/libs.iml" />
       <module fileurl="file://$PROJECT_DIR$/mapgame/mapgame.iml" filepath="$PROJECT_DIR$/mapgame/mapgame.iml" />
       <module fileurl="file://$PROJECT_DIR$/mygoal/mygoal.iml" filepath="$PROJECT_DIR$/mygoal/mygoal.iml" />
-      <module fileurl="file://$PROJECT_DIR$/resource/resource.iml" filepath="$PROJECT_DIR$/resource/resource.iml" />
     </modules>
   </component>
 </project>

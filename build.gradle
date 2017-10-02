@@ -8,7 +8,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'me.tatarka:gradle-retrolambda:3.2.0'
-        classpath ("com.tinkerpatch.sdk:tinkerpatch-gradle-plugin:${TINKERPATCH_VERSION}"){changing = true}
+        classpath ("com.tinkerpatch.sdk:tinkerpatch-gradle-plugin:1.1.8"){changing = true}
         classpath 'com.tencent.mm:AndResGuard-gradle-plugin:1.2.5'
     }
 }

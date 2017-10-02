@@ -35,7 +35,7 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
-        multiDexEnabled rootProject.ext.android.multiDexEnabled
+//        multiDexEnabled rootProject.ext.android.multiDexEnabled
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -72,17 +72,14 @@ android {
 
 dependencies {
     compile project(":base")
-    if (!IS_DEBUG.toBoolean()) compile project(':mapgame')
-    if (!IS_DEBUG.toBoolean()) compile project(':mygoal')
+    if (IS_RELEASE.toBoolean()||!IS_MAPGAME_RUN.toBoolean()) compile project(':mapgame')
+    if (IS_RELEASE.toBoolean()||!IS_MYGOAL_RUN.toBoolean()) compile project(':mygoal')
 
     compile rootProject.ext.dependencies["support_multidex"]
-    compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:${TINKERPATCH_VERSION}") { changing = true }
+    compile(rootProject.ext.dependencies["tinkerpatch"]){changing = true}
+    compile rootProject.ext.dependencies["arouter_api"]
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
 
-//    compile rootProject.ext.dependencies["arouter_api"]
-//    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
-
-    compile 'com.alibaba:arouter-api:1.2.2'
-    annotationProcessor 'com.alibaba:arouter-compiler:1.1.3'
 }
 
 apply from: 'tinkerpatch.gradle'

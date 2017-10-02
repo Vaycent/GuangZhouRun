@@ -1,7 +1,7 @@
-if(IS_DEBUG.toBoolean()){
-    apply plugin: 'com.android.application'
-}else{
+if(IS_RELEASE.toBoolean()||!IS_MAPGAME_RUN.toBoolean()){
     apply plugin: 'com.android.library'
+}else{
+    apply plugin: 'com.android.application'
 }
 
 apply plugin: 'me.tatarka.retrolambda'
@@ -15,12 +15,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     defaultConfig {
-        if (IS_DEBUG.toBoolean()) {
-//            applicationId rootProject.ext.android.applicationId
-            versionCode rootProject.ext.android.versionCode
-            versionName rootProject.ext.android.versionName
-
-        }
 
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion

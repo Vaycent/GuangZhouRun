@@ -1,8 +1,5 @@
 package vaycent;
 
-/**
- * Created by vaycent on 2017/9/24.
- */
 
 public class RouterPath {
     /* app模块 */

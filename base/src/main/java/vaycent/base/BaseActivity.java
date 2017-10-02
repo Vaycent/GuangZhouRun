@@ -7,11 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.umeng.analytics.MobclickAgent;
 
-import vaycent.utils.StatusbarUtils;
+import vaycent.framework.utils.StatusbarUtils;
 
-/**
- * Created by vaycent on 2017/8/16.
- */
+
 
 public class BaseActivity extends AppCompatActivity {
     @Override

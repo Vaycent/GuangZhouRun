@@ -1,4 +1,4 @@
-package vaycent.utils;
+package vaycent.framework.utils;
 
 import android.Manifest;
 import android.content.Context;

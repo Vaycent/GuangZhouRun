@@ -1,4 +1,4 @@
-package vaycent.helper;
+package vaycent.framework.helper;
 
 import android.content.Context;
 
@@ -9,9 +9,6 @@ import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by vaycent on 2017/8/16.
- */
 
 public class AppBlockCanaryContext extends BlockCanaryContext {
 

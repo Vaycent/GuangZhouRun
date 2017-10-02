@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 import vaycent.RouterPath;
 import vaycent.base.BaseActivity;
-import vaycent.utils.AMapMapUtils;
+import vaycent.framework.utils.AMapMapUtils;
 
 @Route(path = RouterPath.MAP_GAME)
 public class MapGameActivity extends BaseActivity {
