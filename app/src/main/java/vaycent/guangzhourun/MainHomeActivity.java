@@ -41,10 +41,10 @@ public class MainHomeActivity extends BaseActivity
  }
 
     private void initToolBar(){
-        Toolbar toolbar = (Toolbar) findViewById(R.id.activity_main_home_appbar_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tb_activity_main_home_appbar_toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_main_home_drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dl_activity_main_home_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -56,7 +56,7 @@ public class MainHomeActivity extends BaseActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_main_home_drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dl_activity_main_home_drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -100,7 +100,7 @@ public class MainHomeActivity extends BaseActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_main_home_drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dl_activity_main_home_drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

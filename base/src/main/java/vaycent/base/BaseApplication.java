@@ -6,6 +6,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.github.moduth.blockcanary.BlockCanary;
 import com.squareup.leakcanary.LeakCanary;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.socialize.UMShareAPI;
 
 import vaycent.framework.helper.AppBlockCanaryContext;
 
@@ -21,6 +22,8 @@ public class BaseApplication extends Application{
         super.onCreate();
 
         initARouter();
+
+        UMShareAPI.get(this);
 
         if(appIsRelease){
             initUmengAnalytics();

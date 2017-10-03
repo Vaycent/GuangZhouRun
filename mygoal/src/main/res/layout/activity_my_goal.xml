@@ -5,21 +5,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="vaycent.mygoal.MyGoalActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:theme="@style/AppTheme.AppBarOverlay">-->
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/activity_main_home_appbar_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:id="@+id/tb_activity_my_goal_toolbar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="?attr/actionBarSize"-->
+            <!--android:background="@color/transparent"-->
+            <!--android:title="@string/app_name"-->
+            <!--app:elevation="0dp"-->
+            <!--app:navigationIcon="@drawable/ic_arrow_back"-->
+            <!--app:theme="@style/Base.ThemeOverlay.AppCompat.Dark"/>-->
 
-    </android.support.design.widget.AppBarLayout>
+
+    <!--</android.support.design.widget.AppBarLayout>-->
 
     <TextView
         android:layout_width="wrap_content"

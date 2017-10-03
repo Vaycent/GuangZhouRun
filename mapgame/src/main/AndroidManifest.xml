@@ -9,7 +9,7 @@
         android:label="mapgame"
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
-        android:theme="@style/AppThemeNight.NoActionBar">
+        android:theme="@style/AppTheme">
 
         <activity android:name=".ModuleEntranceActivity">
             <intent-filter>
@@ -18,9 +18,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MapGameActivity"/>
+        <activity android:name=".MapGameActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".MapTaskActivity"
+            android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleTop">
         </activity>
     </application>
