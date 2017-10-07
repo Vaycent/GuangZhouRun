@@ -3,7 +3,6 @@ package vaycent.mygoal;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -47,8 +46,6 @@ public class MyGoalActivity extends BaseToolbarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_mygoal_share, menu);
         menu.findItem(R.id.item_mygoal_share).setOnMenuItemClickListener(item -> {
-            Log.e("111","222");
-            Log.e("333","444");
 //            new ShareAction(MyGoalActivity.this)
 //                    .withText("hello")
 //                    .setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.WEIXIN)
