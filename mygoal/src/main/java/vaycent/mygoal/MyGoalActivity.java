@@ -15,11 +15,11 @@ import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
 import vaycent.RouterPath;
-import vaycent.base.BaseActivity;
+import vaycent.base.BaseToolbarActivity;
 
 
 @Route(path = RouterPath.MY_GOAL)
-public class MyGoalActivity extends BaseActivity {
+public class MyGoalActivity extends BaseToolbarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
